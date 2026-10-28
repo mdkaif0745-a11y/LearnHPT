@@ -26,7 +26,7 @@ function BrowseStays() {
 
         const matchesSeats= !seatsOpen || pg.availableSeats>0; 
 
-        return matchesSearch && matchesCity && matchesType && matchesBudget;
+        return matchesSearch && matchesCity && matchesType && matchesBudget && matchesSeats;
     });
     return (
         <div className="min-h-screen bg-black pt-24 text-white">
@@ -57,7 +57,6 @@ function BrowseStays() {
 
                     {/* City filter */}
                     <select
-                        defaultValue="all"
                         className="rounded-xl border border-white/10 bg-[#111111] px-3 py-4 text-sm text-white outline-none"
                         value={selectedCity}
                         onChange={(e)=> setSelectedCity(e.target.value)}
@@ -69,7 +68,6 @@ function BrowseStays() {
 
                     {/* Room type filter */}
                     <select
-                        defaultValue="everyone"
                         className="rounded-xl border border-white/10 bg-[#111111] px-3 py-4 text-sm text-white outline-none"
                         value={selectedType}
                         onChange={(e)=>setSelectedType(e.target.value)}
@@ -82,8 +80,9 @@ function BrowseStays() {
 
                     {/* Budget filter */}
                     <select
-                        defaultValue="any"
                         className="rounded-xl border border-white/10 bg-[#111111] px-3 py-4 text-sm text-white outline-none"
+                        value={selectedBudget}
+                        onChange={(e)=>setSelectedBudget(e.target.value)}
                     >
                         <option value="any">Any budget</option>
                         <option value="under-5000">Under ₹5,000</option>
